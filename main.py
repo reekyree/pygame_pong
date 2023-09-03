@@ -8,8 +8,8 @@ screen = pygame.display.set_mode((500, 400))
 # Set the title of the window
 pygame.display.set_caption("Pygame Pong")
 
-# Draw a rectangle to the screen
-pygame.draw.rect(screen, "white", (50, 50, 100, 100))
+# Draw a rectangle to the screen as the player
+player = pygame.draw.rect(screen, "white", (50, 50, 100, 100))
 
 # Update the screen
 pygame.display.flip()
@@ -22,3 +22,14 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP:
+                player.x += 5
+            if event.key == pygame.K_DOWN:
+                player.x -= 5
+        if event.type == pygame.KEYUP:
+            print('key up')
+
+
