@@ -4,18 +4,14 @@ pygame.init()
 
 # Create the window
 screen = pygame.display.set_mode((500, 400))
-
-# Set the title of the window
 pygame.display.set_caption("Pygame Pong")
-
-# Draw a rectangle to the screen as the player
-player = pygame.draw.rect(screen, "white", (50, 50, 100, 100))
-
-# Update the screen
-pygame.display.flip()
+clock = pygame.time.Clock()
 
 # Set variable for running the game
 running = True
+
+player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
+
 
 # Main program loop
 while running:
@@ -23,13 +19,6 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    for event in pygame.event.get():
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
-                player.x += 5
-            if event.key == pygame.K_DOWN:
-                player.x -= 5
-        if event.type == pygame.KEYUP:
-            print('key up')
+    pygame.draw.rect(screen, "white", (50, 150, 50, 150))
 
-
+    pygame.display.flip() 
