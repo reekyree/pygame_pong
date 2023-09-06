@@ -19,6 +19,12 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    pygame.draw.rect(screen, "white", (50, 150, 50, 150))
+    pygame.draw.rect(screen, "white", (player_pos, player_pos, player_pos, player_pos))
+    
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_w]:
+        player_pos.y -= 100
+    if keys[pygame.K_s]:
+        player_pos.y += 100
 
     pygame.display.flip() 
